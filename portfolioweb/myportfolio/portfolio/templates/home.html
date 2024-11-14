@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {% load static %}
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <title>Portfolio</title>
+
+  <style>
+    :root {
+        --text-color: #1a1c20;
+        --link-color: #10d4cd;
+        --background-color: #eeeff1;
+        --hover-color: #ff7e5f;
+        --shadow-color: rgba(255, 40, 126, 0.59);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #0b4069;
+            background-color: rgba(236, 244, 214, 0.49);
+        }
+    a {
+        color: var(--link-color);
+        text-decoration: none;
+    }
+
+    /* NAVBAR */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        height: 80px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        background-color: #fff;
+    }
+
+    nav .left a {
+        color: var(--text-color);
+        font-size: 22px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    nav .right a {
+        color: var(--text-color);
+        margin: 0 10px;
+        transition: all 0.3s ease;
+    }
+
+    nav .right a:hover {
+        color: var(--hover-color);
+        transform: translateY(-3px);
+    }
+
+    nav .right a:last-child {
+        color: var(--background-color);
+        background-color: var(--text-color);
+        padding: 5px 15px;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        transition: all 0.3s ease;
+    }
+
+    nav .right a:last-child:hover {
+        background-color: var(--hover-color);
+        color: white;
+        transform: translateY(-3px);
+    }
+
+    /* SECTION 1: Hero */
+     .hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(139deg, black, #064074);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+    .hero-section .text {
+        flex: 5;
+        animation: slideInLeft 1s ease-out;
+    }
+
+    .hero-section .text h2 {
+        font-size: 45px;
+        margin-bottom: 20px;
+        animation: bounceIn 1s ease-out;
+    }
+
+    .hero-section .text .links {
+        margin-top: 25px;
+    }
+
+    .hero-section .text .links a {
+        display: inline-block;
+        padding: 5px 10px;
+        border: 2px solid var(--link-color);
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .hero-section .text .links a:hover {
+        /*color: var(--text-color);*/
+        /*border: 2px solid var(--text-color);*/
+        transform: translateY(-3px);
+    }
+
+    .hero-section .headshot {
+        flex: 2;
+        display: flex;
+        justify-content: right;
+        animation: rotateIn 1s ease-out;
+    }
+
+    .hero-section .headshot img {
+        width: 350px;
+        border-radius: 50%;
+        box-shadow: 0 8px 15px var(--shadow-color);
+        transition: transform 0.3s ease;
+    }
+
+    .hero-section .headshot img:hover {
+        transform: scale(1.05);
+    }
+
+    /* SECTION 2: Skills */
+    .skills-section {
+        padding: 0 50px;
+        margin-bottom: 100px;
+    }
+
+    .skills-section h2 {
+        text-align: center;
+        font-size: 35px;
+        animation: fadeIn 1s ease-out;
+    }
+
+    .skills-section .text {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .skills-section .cells {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .skills-section .cells .cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 200px;
+        padding: 10px 20px;
+        margin: 10px;
+        border: 1.5px solid #d3d3d3;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skills-section .cells .cell:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px var(--shadow-color);
+    }
+
+    .skills-section .cells .cell img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        border-radius: 2px;
+    }
+
+    .skills-section .cells .cell span {
+        font-size: 18px;
+    }
+
+    /* SECTION 3: Testimony */
+    .testimony-section {
+        padding: 0 50px;
+        margin-bottom: 100px;
+    }
+
+    .testimony-section h2 {
+        font-size: 35px;
+        margin-bottom: 30px;
+    }
+
+    .testimony-section .group {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .testimony-section .group .person-details {
+        text-align: center;
+        flex: 2;
+    }
+
+    .testimony-section .group .person-details img {
+        width: 200px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        box-shadow: 0 8px 15px var(--shadow-color);
+    }
+
+    .testimony-section .group .person-details p {
+        font-weight: 600;
+    }
+
+    .testimony-section .group .text {
+        flex: 8;
+        font-style: italic;
+    }
+
+    /* SECTION 4: Contact */
+    .contact-section {
+        padding: 0 50px;
+        margin-bottom: 100px;
+    }
+
+    .contact-section h2 {
+        font-size: 35px;
+    }
+
+    .contact-section .group {
+        display: flex;
+        gap: 50px;
+    }
+
+    .contact-section .group .text {
+        flex: 3;
+        margin-top: 20px;
+    }
+
+    .contact-section .group form {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-section .group form input,
+    .contact-section .group form textarea {
+        font-family: 'Poppins', sans-serif;
+        border: 2px solid var(--link-color);
+        background-color: transparent;
+        padding: 10px;
+        margin-bottom: 15px;
+        outline: none;
+        resize: none;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-section .group form input:focus,
+    .contact-section .group form textarea:focus {
+        transform: scale(1.05);
+        box-shadow: 0 8px 15px var(--shadow-color);
+    }
+
+    .contact-section .group form button {
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        background-color: var(--link-color);
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .contact-section .group form button:hover {
+        background-color: var(--hover-color);
+    }
+
+    .scroll-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4a76ee;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        transition: all 0.3s ease;
+    }
+
+    .scroll-top-btn:hover {
+        background-color: var(--hover-color);
+        transform: translateY(-3px);
+    }
+ .social-links {
+        position: fixed;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    .social-links a {
+        display: block;
+        margin: 10px 0;
+        font-size: 20px;
+        color: #fff;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+        background-color: var(--highlight-color);
+        transform: scale(1.1);
+    }
+
+    .social-links a.github {
+        background-color: #24292f;
+    }
+
+    .social-links a.linkedin {
+        background-color: #053042;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="left">
+      <a href="#hero">Durgesh Kumar</a>
+    </div>
+    <div class="right">
+      <a href="{% url 'about' %}">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+<div class="social-links">
+    <a href="https://github.com/your-github" class="github" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/your-linkedin" class="linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="text">
+      <h2>Hello, I'm Durgesh Kumar</h2>
+      <p>Web Developer | Designer</p>
+      <div class="links">
+        <a href="#contact">Contact Me</a>
+        <a href="#portfolio">My Portfolio</a>
+      </div>
+    </div>
+    <div class="headshot">
+        <img src="{% static 'image/dkk1.png' %}" alt="Durgesh ">
+      </div>
+    </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="skills-section">
+    <h2>Skills</h2>
+    <div class="text">
+      <p>I'm skilled in the following technologies And etc:</p>
+    </div>
+    <div class="cells">
+      <div class="cell">
+        <span><i class="fab fa-html5"></i> HTML5</span>
+      </div>
+      <div class="cell">
+        <span><i class="fab fa-css3-alt"></i> CSS3</span>
+      </div>
+      <div class="cell">
+        <span><i class="fab fa-js"></i> JavaScript</span>
+      </div>
+      <div class="cell">
+        <span><i class="fab fa-python"></i> Python</span>
+      </div>
+      <div class="cell">
+        <span><i class="fab fa-django"></i> Django</span>
+      </div>
+      <div class="cell">
+        <span><i class="fab fa-react"></i> React</span>
+      </div>
+      <div class="cell">
+        <span><i class="fas fa-database"></i> SQL, MongoDB</span>
+      </div>
+    </div>
+</section>
+
+  <!-- TESTIMONIALS SECTION -->
+  <section id="testimonials" class="testimony-section">
+    <h2>What Clients Say</h2>
+    <div class="group">
+      <div class="person-details">
+        <p>Client 1</p>
+      </div>
+      <div class="text">
+        <p>"Durgesh is an excellent developer, highly recommended!"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+     {% csrf_token %}
+    <h2>Contact</h2>
+    <div class="group">
+      <div class="text">
+        <p>If you want to work with me or have any questions, feel free to reach out.</p>
+      </div>
+      <form id="contactForm">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    document.querySelector('#contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();  // Prevent the default form submission
+
+        const formData = new FormData(this);
+
+        fetch("{% url 'contact' %}", {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert(data.message);  // Show success message
+                this.reset();         // Clear the form fields
+            } else {
+                alert(data.message);  // Show error message
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+
+  <!-- Scroll Top Button -->
+  <button id="scrollTopBtn" class="scroll-top-btn" style="display:none;">Back to Top</button>
+
+  <script>
+    // Smooth scroll for in-page navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+      });
+    });
+
+    // Scroll top button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    };
+
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Form validation
+    const form = document.querySelector('#contactForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = form.querySelector('[name="name"]');
+        const email = form.querySelector('[name="email"]');
+        const message = form.querySelector('[name="message"]');
+
+        if (!name.value || !email.value || !message.value) {
+            alert('Please fill out all fields.');
+        } else if (!validateEmail(email.value)) {
+            alert('Please enter a valid email address.');
+        } else {
+            alert('Message sent successfully!');
+            form.reset();
+        }
+    });
+
+    function validateEmail(email) {
+        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+
+  </script>
+</body>
+</html>
+
+<script>
+    // Smooth scroll for in-page navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+          });
+      });
+    });
+
+    // Scroll top button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
+    };
+
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
